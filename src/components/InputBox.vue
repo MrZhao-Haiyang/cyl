@@ -10,6 +10,7 @@
       </div>
       <div class="content-box">
         <textarea
+          v-model="msg"
           class="textarea-style"
           name="留言"
           id="message"
@@ -18,7 +19,7 @@
         ></textarea>
       </div>
       <div class="bottom-box">
-        <div class="submit-box" @click="submit">发表</div>
+        <div class="submit-box" @click="submitMsg">发表</div>
       </div>
     </div>
   </div>
@@ -29,11 +30,14 @@ export default {
   name: "InputBox",
   data: () => {
     return {
-      showInput: false
+      showInput: false,
+      msg: ""
     };
   },
+  props: ["submit"],
   methods: {
-    submit: function() {
+    submitMsg: function() {
+      this.submit(this.msg);
       this.showInput = false;
     }
   }

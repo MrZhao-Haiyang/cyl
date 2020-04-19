@@ -4,20 +4,21 @@
       <img class="head-box" src="../assets/demo1.png" alt="" />
     </div>
     <div class="middle-box">
-      <div class="name-box">可爱的小甜甜</div>
-      <div class="date-box">2020-04-19 17:05</div>
-      <div class="text-box">这个活动不错，我很喜欢！</div>
+      <div class="name-box">{{ msg.nickname }}</div>
+      <div class="date-box">{{ msg.create_time }}</div>
+      <div class="text-box">{{ msg.message }}</div>
     </div>
-    <div class="right-box">
-      <div class="num-box">29</div>
-      <img class="hand-box" src="../assets/greyhand.png" alt="" />
-    </div>
+    <!--<div class="right-box">-->
+    <!--<div class="num-box">29</div>-->
+    <!--<img class="hand-box" src="../assets/greyhand.png" alt="" />-->
+    <!--</div>-->
   </div>
 </template>
 
 <script>
 export default {
-  name: "Message"
+  name: "Message",
+  props: ["msg"]
 };
 </script>
 
@@ -44,6 +45,7 @@ export default {
   flex: 1;
   display: flex;
   flex-direction: column;
+  padding-right: 0.2rem;
 }
 .name-box {
   height: 0.3rem;
