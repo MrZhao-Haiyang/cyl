@@ -75,6 +75,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   background-color: #eaeaea;
+  font-size: 0.2rem;
 }
 .content-box {
   width: 100%;
