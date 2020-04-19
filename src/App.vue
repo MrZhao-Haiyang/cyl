@@ -52,7 +52,7 @@ export default {
           //这里使用了ES6的语法
           console.log(resp); //请求成功返回的数据
           if (resp.data.errmsg === "success") {
-            this.$forceUpdate();
+            this.msg = [resp.data.data, ...this.msg];
           }
         })
         .catch(error => {
