@@ -1,7 +1,7 @@
 <template>
   <div class="msg-box">
     <div class="left-box">
-      <img class="head-box" src="../assets/demo1.png" alt="" />
+      <img class="head-box" :src="msg.headimgurl" alt="" />
     </div>
     <div class="middle-box">
       <div class="name-box">{{ msg.nickname }}</div>

@@ -65,6 +65,6 @@ export default {
 
 <style>
 #app {
-  padding-bottom: 4rem;
+  padding-bottom: 2rem;
 }
 </style>
