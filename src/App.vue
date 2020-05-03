@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <ImageBox />
+    <ImageBox :info="info" :updateInfo="updateInfo" />
     <Content />
     <Message v-for="(item, index) in msg" :key="index" :msg="item" />
     <InputBox :submit="submit" />
@@ -31,6 +31,7 @@ export default {
         console.log(resp); //请求成功返回的数据
         if (resp.data.errmsg === "success") {
           this.msg = resp.data.data.messages;
+          this.info = resp.data.data.clicks.countInfo;
         }
       })
       .catch(error => {
@@ -39,7 +40,8 @@ export default {
   },
   data: () => {
     return {
-      msg: []
+      msg: [],
+      info: ""
     };
   },
   methods: {
@@ -58,6 +60,9 @@ export default {
         .catch(error => {
           console.log(error); //请求失败返回的数据
         });
+    },
+    updateInfo: function(info) {
+      this.info = info;
     }
   }
 };

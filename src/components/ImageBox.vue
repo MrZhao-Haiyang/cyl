@@ -7,7 +7,8 @@
       <div class="zan" @click="clickZan">
         {{ showGif ? msg : "以青春之名点亮团旗" }}
       </div>
-      <div class="zan1">———纪念五四运动101周年</div>
+      <div class="zan1">{{ info }}</div>
+      <div class="zan2">———纪念五四运动101周年</div>
     </div>
   </div>
 </template>
@@ -21,6 +22,7 @@ export default {
       msg: ""
     };
   },
+  props: ["info", "updateInfo"],
   methods: {
     clickZan: function() {
       this.showGif = true;
@@ -33,6 +35,7 @@ export default {
           console.log(resp); //请求成功返回的数据
           if (resp.data.errmsg === "success") {
             this.msg = resp.data.data.messageInfo;
+            this.updateInfo(resp.data.data.countInfo);
           }
         })
         .catch(error => {
@@ -77,7 +80,17 @@ export default {
 }
 .zan1 {
   width: 5rem;
-  height: 1rem;
+  height: 0.8rem;
+  color: #545454;
+  font-size: 0.28rem;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.zan2 {
+  width: 5rem;
+  /*height: 1rem;*/
   color: #000000;
   font-size: 0.3rem;
   border-radius: 2px;

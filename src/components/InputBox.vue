@@ -1,7 +1,7 @@
 <template>
   <div class="input-box">
     <div v-show="!showInput" class="btn-box" @click="showInput = true">
-      点击添加评论
+      给团团说的话
     </div>
     <div v-show="showInput" class="text-box">
       <div class="title-box">
